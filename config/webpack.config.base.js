@@ -10,6 +10,9 @@ const webpackConfig = {
     entry:{
         server:path.join(util.APP_PATH,'index.js')
     },
+	resolve: {
+	    ...utils.getWebpackResolveConfig(),
+	},
     output:{
         filename:'[name].bundle.js',
         path:util.DIST_PATH
