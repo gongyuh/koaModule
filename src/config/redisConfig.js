@@ -29,23 +29,23 @@ const options = {
 const client = redis.createClient(options)
 
 //setVal
-const setValue = (key,value) => {
-  if(typeof value === 'undefined' || value == null || value === ''){
-    return 
+const setValue = (key, value, time) => {
+  if (typeof value === 'undefined' || value == null || value === '') {
+    return
   }
-
-  if(typeof value === 'string'){
-		if (typeof time !== 'undefined') {
-          client.set(key, value, 'EX', time)
-        } else {
-          client.set(key, value)
-        }
-  }else if(typeof value === 'object'){
-    Object.keys(value).forEach((item)=>{
+  if (typeof value === 'string') {
+    if (typeof time !== 'undefined') {
+      client.set(key, value, 'EX', time)
+    } else {
+      client.set(key, value)
+    }
+  } else if (typeof value === 'object') {
+    // { key1: value1, key2: value2}
+    // Object.keys(value) => [key1, key2]
+    Object.keys(value).forEach((item) => {
       client.hset(key, item, value[item], redis.print)
     })
   }
-  return 
 }
 
 //getVal
