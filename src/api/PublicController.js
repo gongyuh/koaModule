@@ -1,5 +1,5 @@
 import svgCaptcha from 'svg-captcha'
-import { getValue, setValue } from '../config/redisConfig'
+import { setValue } from '../config/redisConfig'
 
 class PublicController{
     constructor(){}
@@ -13,7 +13,7 @@ class PublicController{
 			color:true
 		})
         console.log(newCaptcha)
-	    setValue(body.sid, newCaptcha.text)
+	    setValue(body.sid, newCaptcha.text, 10*60)
         ctx.body={
             code:200,
             data: newCaptcha.data,

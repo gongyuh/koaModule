@@ -1,4 +1,3 @@
-import { appendFileSync } from 'fs';
 import redis from 'redis'
 
 const options = {
