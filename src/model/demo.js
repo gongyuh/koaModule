@@ -1,5 +1,7 @@
 import User from './test'
 
+//mongoose的基本使用方式
+
 //增
 const user = {
     name:'hello',
