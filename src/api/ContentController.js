@@ -5,10 +5,9 @@ class ContentController {
     const body = ctx.query;
 
     const post = new Post({
-        uid: { type: String, ref: 'users' },
         title: 'test title',
         content : 'test content',
-        catalog : 'share',
+        catalog : 'ask',
         fav : 20,
         isEnd : '0',
         reads : '0',
@@ -17,7 +16,7 @@ class ContentController {
         isTop : '0',
         sort : '0',
         tags : [{
-            name : '精华',
+            name : '',
             class : ''
         }]
     })
